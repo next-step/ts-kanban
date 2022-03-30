@@ -1,0 +1,21 @@
+{
+	"name": "ts-kanban",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"module": "true",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/next-step/ts-kanban.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/next-step/ts-kanban/issues"
+	},
+	"homepage": "https://github.com/next-step/ts-kanban#readme",
+	"devDependencies": {
+		"typescript": "^4.6.2"
+	}
+}
