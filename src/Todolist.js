@@ -1,18 +1,19 @@
 /**
- * Todoitem를 가지는 배열 객체
+ * @description Todolist는 Todoitem를 가지는 객체
  * @type {Todoitem[]}
  */
-const Todolist = [];
+const Todolist = {};
 
 /**
- * Todoitem 객체
+ * @description Todoitem 객체
  * 순서대로 아이디, 내용, 완료여부, 카테고리, 태그들(문자열 타입의 태그를 담은 문자열 배열)
  * @type {{id: !string, content: !string, completed: !boolean, category: !string, tags: ?string[]}}
  */
 const Todoitem = {};
 
 /**
- * 할 일을 추가할 수 있다. 내용없이 추가할 수 없다.
+ * @function createItem
+ * @description 할 일을 추가할 수 있다. 내용없이 추가할 수 없다.
  * Todoitem 객체를 생성한다.
  * @param id {string} - required
  * @param content {string} - required
@@ -32,15 +33,12 @@ const createItem = (id, content, completed, category, tags) => {
   };
 
   Todolist.push(newItem);
-  /** 본래 return 은 {}으로,
-   * 만들어진 Item객체를 리턴만 하는 것으로 이해했었으나,
-   * 전역으로 다뤄야하는 Todolist에 넣는 method가 없어서 여기에 push를 구현함.
-   */
   return newItem;
 };
 
 /**
- * 모든 할 일을 조회할 수 있다.
+ * @function readItems
+ * @description 모든 할 일을 조회할 수 있다.
  * Todolist를 반환한다.
  * @returns {Todoitem[]}
  */
@@ -49,7 +47,8 @@ const readItems = () => {
 };
 
 /**
- * ID를 기반으로 특정 할 일을 조회할 수 있다.
+ * @function readItem
+ * @description ID를 기반으로 특정 할 일을 조회할 수 있다.
  * 해당 ID를 가진 Todoitem 인스턴스를 반환한다.
  * @param id
  * @returns {{}}
@@ -60,9 +59,11 @@ const readItem = (id) => {
 };
 
 /**
- * ID를 제외한 모든 속성을 수정할 수 있다.
+ * @function updateItem
+ * @description ID를 제외한 모든 속성을 수정할 수 있다.
+ * ID는 식별하기 위한 파라미터, 나머지는 변경할 값을 받는다.
  * 수정 성공시 true 반환
- * undefined 입력시 해당 속성은 수정하지 않음
+ * null 입력시 해당 속성은 수정하지 않음
  * @param id {string} - required
  * @param content {string} - required
  * @param completed {boolean} - required
@@ -85,7 +86,8 @@ const updateItem = (id, content, completed, category, tags) => {
 };
 
 /**
- * 특정 할 일의 특정 태그를 수정할 수 있다.
+ * @function updateTag
+ * @description 특정 할 일의 특정 태그를 수정할 수 있다.
  * 수정 성공시 true 반환
  * @param id {string}
  * @param prev {string} - 수정하려는 태그
@@ -106,7 +108,8 @@ const updateTag = (id, prev, next) => {
 };
 
 /**
- * ID를 기반으로 특정 할 일을 삭제할 수 있다.
+ * @function deleteItem
+ * @description ID를 기반으로 특정 할 일을 삭제할 수 있다.
  * 삭제 성공시 true 반환
  * @param id
  * @returns {boolean}
@@ -120,7 +123,8 @@ const deleteItem = (id) => {
 };
 
 /**
- * 모든 할 일을 제거할 수 있다.
+ * @function deleteItems
+ * @description 모든 할 일을 제거할 수 있다.
  * @returns {boolean}
  */
 const deleteItems = () => {
@@ -129,7 +133,8 @@ const deleteItems = () => {
 };
 
 /**
- * 특정 할 일의 특정 태그를 삭제할 수 있다.
+ * @function deleteTag
+ * @description 특정 할 일의 특정 태그를 삭제할 수 있다.
  * @param id
  * @param tag
  * @returns {boolean}
@@ -148,7 +153,8 @@ const deleteTag = (id, tag) => {
 };
 
 /**
- * 특정 할 일의 모든 태그를 제거할 수 있다.
+ * @function deleteTags
+ * @description 특정 할 일의 모든 태그를 제거할 수 있다.
  * @param id
  * @returns {boolean}
  */
