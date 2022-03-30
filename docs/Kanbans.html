@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Kanban.html">Kanban</a></li><li><a href="Kanbans.html">Kanbans</a><ul class='methods'><li data-type='method'><a href="Kanbans.html#.getInstance">getInstance</a></li><li data-type='method'><a href="Kanbans.html#addKanban">addKanban</a></li><li data-type='method'><a href="Kanbans.html#deleteKanbanById">deleteKanbanById</a></li><li data-type='method'><a href="Kanbans.html#findAllKanban">findAllKanban</a></li><li data-type='method'><a href="Kanbans.html#updateKanbanName">updateKanbanName</a></li><li data-type='method'><a href="Kanbans.html#updateKanbanOrder">updateKanbanOrder</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Kanban.html">Kanban</a></li><li><a href="Kanbans.html">Kanbans</a><ul class='methods'><li data-type='method'><a href="Kanbans.html#.getInstance">getInstance</a></li><li data-type='method'><a href="Kanbans.html#addKanban">addKanban</a></li><li data-type='method'><a href="Kanbans.html#deleteKanbanById">deleteKanbanById</a></li><li data-type='method'><a href="Kanbans.html#findAllKanban">findAllKanban</a></li><li data-type='method'><a href="Kanbans.html#moveOneTodoToAnotherKanban">moveOneTodoToAnotherKanban</a></li><li data-type='method'><a href="Kanbans.html#updateKanbanName">updateKanbanName</a></li><li data-type='method'><a href="Kanbans.html#updateKanbanOrder">updateKanbanOrder</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -439,7 +439,7 @@ Kanban ID는 내부에서 생성됩니다.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_kanban_Kanban.js.html">model/kanban/Kanban.js</a>, <a href="model_kanban_Kanban.js.html#line66">line 66</a>
+        <a href="model_kanban_Kanban.js.html">model/kanban/Kanban.js</a>, <a href="model_kanban_Kanban.js.html#line75">line 75</a>
     </li></ul></dd>
     
 
@@ -696,7 +696,189 @@ ID 기반으로 정렬되어 호출됩니다.</p>
 
     
 
-    <h4 class="name" id="updateKanbanName"><span class="type-signature"></span>updateKanbanName<span class="signature">(kanbanI, newKanbanName)</span><span class="type-signature"> &rarr; {<a href="Kanban.html">Kanban</a>}</span></h4>
+    <h4 class="name" id="moveOneTodoToAnotherKanban"><span class="type-signature"></span>moveOneTodoToAnotherKanban<span class="signature">(originalKanbanId, newKanbanId, todoId)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model_kanban_Kanban.js.html">model/kanban/Kanban.js</a>, <a href="model_kanban_Kanban.js.html#line66">line 66</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>칸반이 가지고 있는 할 일을 다른 칸반으로 옮길 수 있습니다.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>originalKanbanId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newKanbanId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>todoId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="updateKanbanName"><span class="type-signature"></span>updateKanbanName<span class="signature">(kanbanId, newKanbanName)</span><span class="type-signature"> &rarr; {<a href="Kanban.html">Kanban</a>}</span></h4>
 
     
 
@@ -748,7 +930,7 @@ ID 기반으로 정렬되어 호출됩니다.</p>
 
 
 <div class="description usertext">
-    <p>kanban을 삭제합니다.</p>
+    <p>kanban명을 수정합니다.</p>
 </div>
 
 
@@ -786,7 +968,7 @@ ID 기반으로 정렬되어 호출됩니다.</p>
 
         <tr>
             
-                <td class="name"><code>kanbanI</code></td>
+                <td class="name"><code>kanbanId</code></td>
             
 
             <td class="type">
@@ -1053,7 +1235,7 @@ ID 기반으로 정렬되어 호출됩니다.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu Mar 31 2022 01:01:50 GMT+0900 (Korean Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu Mar 31 2022 01:35:22 GMT+0900 (Korean Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

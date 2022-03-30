@@ -49,12 +49,21 @@ class Kanbans {
 
   /**
    * @description
-   * kanban을 삭제합니다.
-   * @param {string} kanbanI
+   * kanban명을 수정합니다.
+   * @param {string} kanbanId
    * @param {string} newKanbanName
    * @return {Kanban}
    */
   updateKanbanName(kanbanId, newKanbanName) {}
+
+  /**
+   * @description
+   * 칸반이 가지고 있는 할 일을 다른 칸반으로 옮길 수 있습니다.
+   * @param {string} originalKanbanId
+   * @param {string} newKanbanId
+   * @param {string} todoId
+   */
+  moveOneTodoToAnotherKanban(originalKanbanId, newKanbanId, todoId) {}
 
   /**
    * @description
@@ -66,11 +75,18 @@ class Kanbans {
   deleteKanbanById(kanbanId) {}
 }
 
+/**
+ * @description
+ * Karban 클래스입니다.
+ * @constructor
+ * @param {string} status kanban 상태
+ * @param {string} name kanban 명
+ * @param {string} orderNumber kanban 정렬 순서
+ */
 class Kanban {
   status;
   id;
   name;
-
   /**
    * @description
    * Karban 생성자입니다.
