@@ -8,22 +8,23 @@ const Kanban = {};
 /**
  * @function createList
  * @description Todolist 객체를 생성하고 Kanban에 추가한다.
- * (Todolist에 아이디, 주제, 설명을 붙여서 Kanban에 등록한다)
+ * (Todolist에 아이디, 주제, 설명을 붙여서 Kanban에 부착한다)
  * @param id {string} - required
  * @param subject {string} - required
  * @param desc {string | null} - optional
  * @param list {Todolist[]} - required
  * @returns {{}} 생성된 Todolist를 반환
  */
-const createList = (id, content, completed, category, tags) => {
+const createList = (id, subject, desc, list) => {
 };
 
 /**
  * @function readKanban
  * @description 칸반을 조회한다.
+ * 칸반에 부착된 모든 Todolist를 조회한다.
  * @returns {Kanban}
  */
-const readLists = () => {
+const readKanban = () => {
 }
 
 /**
