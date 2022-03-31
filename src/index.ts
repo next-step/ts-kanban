@@ -1,66 +1,75 @@
+type Tag = {
+  tag: string;
+};
+
 type TodoItem = {
   id: number;
   content: string;
   finished: boolean;
-  category: string;
-  tags?: Array<string>;
+  category: "오늘 할 일" | "내일 할 일" | "다음 주 할 일";
+  tags?: Tag[];
+};
+
+type Kanban = {
+  id: number;
+  title: string;
+  todoList: TodoItem[];
 };
 
 // 스토어
-const todoList: Array<TodoItem> = [];
+const todoList: TodoItem[] = [];
+const kanbanList: Kanban[] = [];
 
 // 카테고리
-const category: Array<string> = ["오늘 할 일", "내일 할 일", "다음 주 할 일"];
-
-// 입력 받은 아이디
-let id: number;
-// 입력 받은 할 일
-let content: string;
-// 입력 받은 완료 여부
-let finished: boolean;
-// 선택된 카테고리
-let selectedCategory: string;
-// 입력 받은 태그 리스트
-let tags: Array<string>;
-// 수정 대상 태그
-let selectedTag: string;
-// 새로 입력되는 태그 값
-let tagValue: string;
+const category: string[] = ["오늘 할 일", "내일 할 일", "다음 주 할 일"];
 
 // 할 일 추가
-const createTodo = (
-  id: number,
-  content: string,
-  finished: boolean = false,
-  selectedCategory: string,
-  tags?: Array<string>
-) => {};
+const createTodo = (todoItem: TodoItem): void => {};
 
 //전체 할 일 가져오기
-const readTodoList = () => {};
+const readTodoList = (): void => {};
 
 // 특정 할 일 가져오기
-const readTodoDetail = (id: number) => {};
+const readTodoDetail = (id: number): void => {};
 
 // 할 일 수정
 const updateTodo = (
   id: number,
   content: string,
   finished: boolean,
-  selectedCategory: string
-) => {};
+  selectedCategory: "오늘 할 일" | "내일 할 일" | "다음 주 할 일"
+): void => {};
 
 // 특정 할 일의 특정 태그 수정
-const updateTodoTag = (id: number, selectedTag: string, tagValue: string) => {};
+const updateTodoTag = (id: number, selectedTag: Tag, tagValue: Tag): void => {};
 
 // 특정 할 일 제거
-const deleteTodoDetail = (id: number) => {};
+const deleteTodoDetail = (id: number): void => {};
 
 // 전체 할 일 제거
-const deleteTodoList = () => {};
+const deleteTodoList = (): void => {};
 
 // 특정 할 일의 특정 태그 제거
-const deleteTodoTag = (id: number, selectedTag: string) => {};
+const deleteTodoTag = (id: number, selectedTag: Tag): void => {};
 
 // 특정 할 일의 모든 태그 제거
-const deleteTodoTagAll = (id: number) => {};
+const deleteTodoTagAll = (id: number): void => {};
+
+// 칸반 추가
+const createKanban = (kanban: Kanban): void => {};
+
+// 칸반 가져오기
+const readKanban = (): void => {};
+
+// 칸반 제목 수정
+const updateKanbanTitle = (id: number, title: string): void => {};
+
+// 칸반 할 일 이동
+const updateKanbanTodo = (
+  id: number,
+  targetId: number,
+  todoId: number
+): void => {};
+
+// 칸반 제거
+const deleteKanban = (id: number): void => {};
