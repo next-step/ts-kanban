@@ -1,0 +1,14 @@
+{
+  "name": "ts-kanban",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jinsoobyeon/ts-kanban.git",
+  "author": "jinsoobyeon <jinsoobyeon@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "npx tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
