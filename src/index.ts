@@ -1,9 +1,12 @@
+let todoId: number = 1;
+let kanbanId: number = 1;
+
 type Tag = {
   tag: string;
 };
 
 type TodoItem = {
-  id: number;
+  todoId: number;
   content: string;
   finished: boolean;
   category: "오늘 할 일" | "내일 할 일" | "다음 주 할 일";
@@ -11,7 +14,7 @@ type TodoItem = {
 };
 
 type Kanban = {
-  id: number;
+  kanbanId: number;
   title: string;
   todoList: TodoItem[];
 };
@@ -30,30 +33,34 @@ const createTodo = (todoItem: TodoItem): void => {};
 const readTodoList = (): void => {};
 
 // 특정 할 일 가져오기
-const readTodoDetail = (id: number): void => {};
+const readTodoDetail = (todoId: number): void => {};
 
 // 할 일 수정
 const updateTodo = (
-  id: number,
+  todoId: number,
   content: string,
   finished: boolean,
   selectedCategory: "오늘 할 일" | "내일 할 일" | "다음 주 할 일"
 ): void => {};
 
 // 특정 할 일의 특정 태그 수정
-const updateTodoTag = (id: number, selectedTag: Tag, tagValue: Tag): void => {};
+const updateTodoTag = (
+  todoId: number,
+  selectedTag: Tag,
+  tagValue: Tag
+): void => {};
 
 // 특정 할 일 제거
-const deleteTodoDetail = (id: number): void => {};
+const deleteTodoDetail = (todoId: number): void => {};
 
 // 전체 할 일 제거
 const deleteTodoList = (): void => {};
 
 // 특정 할 일의 특정 태그 제거
-const deleteTodoTag = (id: number, selectedTag: Tag): void => {};
+const deleteTodoTag = (todoId: number, selectedTag: Tag): void => {};
 
 // 특정 할 일의 모든 태그 제거
-const deleteTodoTagAll = (id: number): void => {};
+const deleteTodoTagAll = (todoId: number): void => {};
 
 // 칸반 추가
 const createKanban = (kanban: Kanban): void => {};
@@ -62,14 +69,14 @@ const createKanban = (kanban: Kanban): void => {};
 const readKanban = (): void => {};
 
 // 칸반 제목 수정
-const updateKanbanTitle = (id: number, title: string): void => {};
+const updateKanbanTitle = (kanbanId: number, title: string): void => {};
 
 // 칸반 할 일 이동
 const updateKanbanTodo = (
-  id: number,
-  targetId: number,
+  kanbanId: number,
+  targetKanbanId: number,
   todoId: number
 ): void => {};
 
 // 칸반 제거
-const deleteKanban = (id: number): void => {};
+const deleteKanban = (kanbanId: number): void => {};
