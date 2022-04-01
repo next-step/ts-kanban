@@ -3,14 +3,15 @@
  * Kanban 리스트 생성자입니다.
  * 한번만 생성되어 static으로 반환됩니다.
  */
-class Kanbans {
-  #kanbans = [];
+class KanbanBoard {
+  public readonly KanbanBoard: Kanban[] = [];
+  private static instance: KanbanBoard;
 
   /**
-   * @description Kanbans을 생성하여 반환합니다.
-   * @returns {Kanbans}
+   * @description 내부에 선언된 instance를 반환합니다. 존재하지 않는다면, KanbanBoard을 생성하여 반환합니다.
+   * @returns {KanbanBoard}
    */
-  static getInstance() {}
+  static getInstance(): KanbanBoard {}
 
   /**
    * @description
@@ -25,9 +26,9 @@ class Kanbans {
    * Kanban을 추가합니다.
    * Kanban ID는 내부에서 생성됩니다.
    * @param name Kanban 제목
-   * @return {Array.<Kanban>} Kanban
+   * @return {Kanban} Kanban
    */
-  addKanban(name) {}
+  addKanban(name: string) {}
 
   /**
    * @description
@@ -36,7 +37,7 @@ class Kanbans {
    * @param {string} name Kanban 제목
    * @return {Array.<Kanban>} Kanban
    */
-  findAllKanban() {}
+  findAllKanban(name: string) {}
 
   /**
    * @description
@@ -45,25 +46,29 @@ class Kanbans {
    * @param {number} orderNumber
    * @return {<Array>.Kanban}
    */
-  updateKanbanOrder(kanbanId, orderNumber) {}
+  updateKanbanOrder(kanbanId: string, orderNumber: number) {}
 
   /**
    * @description
-   * kanban명을 수정합니다.
-   * @param {string} kanbanId
-   * @param {string} newKanbanName
+   * kanban을 수정합니다.
+   * @param {string} kanbanId - 수정 대상 Kanban ID
+   * @param {string} newKanbanName - 수정된 Kanban 명
    * @return {Kanban}
    */
-  updateKanbanName(kanbanId, newKanbanName) {}
+  updateKanbanName(kanbanId: string, newKanbanName: string) {}
 
   /**
    * @description
-   * 칸반이 가지고 있는 할 일을 다른 칸반으로 옮길 수 있습니다.
+   * 칸반이 가지고 있는 할 일 1개를 다른 칸반으로 옮길 수 있습니다.
    * @param {string} originalKanbanId
    * @param {string} newKanbanId
    * @param {string} todoId
    */
-  moveOneTodoToAnotherKanban(originalKanbanId, newKanbanId, todoId) {}
+  moveOneTodoToAnotherKanban(
+    originalKanbanId: string,
+    newKanbanId: string,
+    todoId: string
+  ) {}
 
   /**
    * @description
@@ -75,25 +80,26 @@ class Kanbans {
   deleteKanbanById(kanbanId) {}
 }
 
-/**
- * @description
- * Karban 클래스입니다.
- * @constructor
- * @param {string} status kanban 상태
- * @param {string} name kanban 명
- * @param {string} orderNumber kanban 정렬 순서
- */
+enum KanbanBoardStatus {
+  Archive,
+  Active,
+}
+
 class Kanban {
-  status;
-  id;
-  name;
+  public readonly status: KanbanBoardStatus;
+  public readonly id: string;
+  public name: string;
+
   /**
    * @description
    * Karban 생성자입니다.
    * Kabans에서 초기 생성되는 Kaban외에는 모두 Active Status를 가집니다.
    * @constructor
-   * @param {string} status kanban 상태
+   * @param {KanbanBoardStatus} status kanban 상태
    * @param {string} name kanban 명입니다.
    */
-  constructor(status, name) {}
+  constructor(
+    status: KanbanBoardStatus = KanbanBoardStatus.Active,
+    name: string
+  ) {}
 }

@@ -42,7 +42,7 @@ export default class Todos implements TodoInterface {
   }
 
   updateTagById(todoId: string, newTag: Tag): Tag {
-    const todo: Todo = this.todos.find((todo: Todo) => (todo.id = todoId));
+    const todo: Todo = this.todos.find((todo: Todo) => todo.id === todoId);
     return todo.updateTagByTagId(newTag);
   }
 
