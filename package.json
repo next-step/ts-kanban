@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "docs": "jsdoc -c jsdoc.json",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +18,9 @@
   "license": "ISC",
   "devDependencies": {
     "docdash": "^1.2.0",
-    "jsdoc": "^3.6.10"
-  },
+    "jsdoc": "^3.6.10",
+    "parcel-bundler": "^1.12.4"
+    },
   "dependencies": {
     "jsDoc": "npm:jsdoc@^3.6.10"
   }
