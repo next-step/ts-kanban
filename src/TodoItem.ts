@@ -3,15 +3,16 @@ import Tag from "./Tag";
 type TodoItemId = number;
 
 interface CreateTodoItemParam {
-    content: string;
-    category: string;
-    tags: Tag[];
+    content: TodoItem["content"];
+    category?: TodoItem["category"];
+    tags?: TodoItem["tags"];
 }
 
 interface UpdateTodoItemParam {
-    content?: string;
-    category?: string;
-    tags?: Tag[];
+    content?: TodoItem["content"];
+    category?: TodoItem["category"];
+    isFinished?: TodoItem["isFinished"];
+    tags?: TodoItem["tags"];
 }
 
 let todoItemId: TodoItemId = 0;

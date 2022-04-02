@@ -1,25 +1,36 @@
 import TodoItem from "./TodoItem";
 
+interface EditItemOptions {
+    content?: TodoItem["content"];
+    category?: TodoItem["category"];
+    isFinished?: TodoItem["isFinished"];
+    tags?: TodoItem["tags"];
+}
+
 export default class TodoList {
     list: TodoItem[] = [];
 
     addItem(todoItem: TodoItem) {
-        this.list.push(todoItem);
+
     }
 
-    getItemById(id: TodoItem["id"]) {
-        return this.list.find((item) => item.id === id);
+    getItemById(id: TodoItem["id"]): TodoItem {
+
     }
 
-    getItemAll() {
-        return this.list;
+    getItemAll(): TodoItem[] {
+
     }
 
-    removeItemById(id) {
-        this.list = this.list.filter((item) => item.id !== id);
+    editItemById(id: TodoItem["id"], options: EditItemOptions) {
+
+    }
+
+    removeItemById(id: TodoItem["id"]) {
+
     }
 
     removeItemAll() {
-        this.list = [];
+
     }
 }

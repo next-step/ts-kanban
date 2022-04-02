@@ -3,19 +3,18 @@ import TodoList from "./TodoList";
 type KanbanId = number;
 
 interface CreateKanbanParam {
-    title: string;
+    title: Kanban["title"];
 }
 
 interface UpdateKanbanParam {
-    id: KanbanId;
-    title: string;
+    title: Kanban["title"];
 }
 
 let kanbanId: KanbanId = 0;
 
-export class Kanban {
+export default class Kanban {
     readonly todoList: TodoList;
-    id: KanbanId;
+    readonly id: KanbanId;
     title: string;
 
     constructor({title}: CreateKanbanParam) {
@@ -24,8 +23,7 @@ export class Kanban {
         this.title = title;
     }
 
-    updateKanban({id, title}: UpdateKanbanParam) {
-        if (id) this.id = id
+    updateKanban({title}: UpdateKanbanParam) {
         if (title) this.title = title;
     }
 }
