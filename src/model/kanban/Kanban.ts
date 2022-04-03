@@ -34,10 +34,9 @@ class KanbanBoard {
    * @description
    * 모든 Kanban을 호출합니다.
    * ID 기반으로 정렬되어 호출됩니다.
-   * @param {string} name Kanban 제목
    * @return {Array.<Kanban>} Kanban
    */
-  findAllKanban(name: string) {}
+  findAllKanban() {}
 
   /**
    * @description
