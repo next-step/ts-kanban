@@ -9,7 +9,7 @@
  * @constructor
  * @public
  */
- class TodoItem {
+ export default class TodoItem {
   /** @member {string} */
   id
 

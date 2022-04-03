@@ -3,7 +3,7 @@
  * @author tiaz0128(주환석)
  */
 
-import TodoItem from "./TodoItem"
+import TodoItem from "./TodoItem.js"
 
 /**
  * Kanban 클래스
@@ -11,7 +11,7 @@ import TodoItem from "./TodoItem"
  * @constructor
  * @public
  */
- class Kanban {
+ export default class Kanban {
   /** @member {KanbanItemType} */
   kanbanItems
 
@@ -39,10 +39,10 @@ import TodoItem from "./TodoItem"
    */
   createTodo(initTodoItem) {
     const id = this.getUniqueId();
-    const todo = new TodoItem(initTodoItem);
+    const todo = new TodoItem({id, ...initTodoItem});
 
-    const newState = {...kanbanItems, todo: [...this.kanbanItems["todo"], todo]};
-    setState(newState);
+    const newState = {...this.kanbanItems, todo: [...this.kanbanItems["todo"], todo]};
+    this.setState(newState);
   }
 
   /** 
@@ -52,7 +52,8 @@ import TodoItem from "./TodoItem"
    * @returns {void}
    */
   readTodo(category, id) {
-    this.kanbanItems[category].find((todo) => todo.id === id).printTodo();
+    console.log(`=== ${category} ===`)
+    this.kanbanItems[category].find((todo) => todo.id === id)?.printTodo();
   }
 
 
@@ -64,14 +65,20 @@ import TodoItem from "./TodoItem"
    * @todo 2. category 파라미터가 있는 경우 -> 해당 카테고리 todo 만 출력
    */
   readTodos(category) {
-    if(category) {
+    if(!category) {
+      console.log("=== todo ===")
       this.kanbanItems["todo"].forEach((todo) => todo.printTodo());
+
+      this.kanbanItems["doing"].length && console.log("=== doing ===")
       this.kanbanItems["doing"].forEach((todo) => todo.printTodo());
+
+      this.kanbanItems["done"].length && console.log("=== done ===")
       this.kanbanItems["done"].forEach((todo) => todo.printTodo());
       return;
     }
     
-    if(!this.kanbanItems(category) && this.kanbanItems[category].length > 0) {
+    console.log(`=== ${category} ===`)
+    if(this.kanbanItems[category].length > 0) {
       return this.kanbanItems[category].forEach((todo) => todo.printTodo());
     }
   }
@@ -86,7 +93,7 @@ import TodoItem from "./TodoItem"
   updateTodo(category, id, updatedTodo) {
     const newTodos = this.kanbanItems[category].map((todo) => {
       if(todo.id === id) {
-        return {...todo, ...updatedTodo}
+        return new TodoItem({...todo, ...updatedTodo}) 
       }
       return todo;
     });
@@ -107,14 +114,15 @@ import TodoItem from "./TodoItem"
   updateCategory(prevCategory ,id, nextCategory) {
     const addedTodo = this.kanbanItems[prevCategory].filter((todo) => todo.id === id);
     const deletedTodos = this.kanbanItems[prevCategory].filter((todo) => todo.id !== id);
-    
-    const newTodos = this.kanbanItems[nextCategory] = [...this.kanbanItems[nextCategory], addedTodo];
+  
+    const newTodos = [...this.kanbanItems[nextCategory], ...addedTodo];
 
     const newState = { ...this.kanbanItems };
+
     newState[prevCategory] = deletedTodos;
     newState[nextCategory] = newTodos;
 
-    this.setState(this.newState);
+    this.setState(newState);
   }
 
   /** 
@@ -126,7 +134,7 @@ import TodoItem from "./TodoItem"
    */
   deleteTag(category, id, tagName) {
     const newTodos = this.kanbanItems[category].map((todo) => {
-      if(todo.id === id) return {...todo, tags: tags.filter((tag) => tag !== tagName)};
+      if(todo.id === id) return new TodoItem({...todo, tags: todo.tags.filter((tag) => tag !== tagName)});
       return todo;
     })
 
