@@ -1,36 +1,37 @@
-import TodoItem from "./TodoItem";
+import TodoItem from './TodoItem';
 
 interface EditItemOptions {
-    content?: TodoItem["content"];
-    category?: TodoItem["category"];
-    isFinished?: TodoItem["isFinished"];
-    tags?: TodoItem["tags"];
+  content?: TodoItem['content'];
+  category?: TodoItem['category'];
+  isFinished?: TodoItem['isFinished'];
+  tags?: TodoItem['tags'];
 }
 
 export default class TodoList {
-    list: TodoItem[] = [];
+  list: TodoItem[] = [];
 
-    addItem(todoItem: TodoItem) {
+  addItem(todoItem: TodoItem) {
+    this.list.push(todoItem);
+  }
 
-    }
+  getItemById(id: TodoItem['id']): TodoItem {
+    return this.list.find(todo => todo.id === id);
+  }
 
-    getItemById(id: TodoItem["id"]): TodoItem {
+  getItemAll(): TodoItem[] {
+    return this.list;
+  }
 
-    }
+  editItemById(id: TodoItem['id'], options: EditItemOptions) {
+    let item = this.getItemById(id);
+    item.updateTodoItem(options);
+  }
 
-    getItemAll(): TodoItem[] {
+  removeItemById(id: TodoItem['id']) {
+    this.list = this.list.filter(item => item.id !== id);
+  }
 
-    }
-
-    editItemById(id: TodoItem["id"], options: EditItemOptions) {
-
-    }
-
-    removeItemById(id: TodoItem["id"]) {
-
-    }
-
-    removeItemAll() {
-
-    }
+  removeItemAll() {
+    this.list = [];
+  }
 }
