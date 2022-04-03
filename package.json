@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/tiaz0128/ts-kanban#readme",
   "devDependencies": {
-    "jsdoc": "^3.6.10"
+    "jsdoc": "^3.6.10",
+    "typescript": "^4.6.3"
   }
 }

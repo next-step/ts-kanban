@@ -155,6 +155,64 @@
 
         <tr>
             
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>아이디값</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>category</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>카테고리</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>content</code></td>
             
 
@@ -333,8 +391,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -345,13 +401,13 @@
 
         <tr>
             
-                <td class="name"><code>category</code></td>
+                <td class="name"><code>todo</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#TodoCategory">TodoCategory</a></span>
+<span class="param-type">Array.&lt;TodoItemType></span>
 
 
             
@@ -360,27 +416,21 @@
             
 
             
-                <td class="default">
-                
-                    "todo"
-                
-                </td>
-            
 
-            <td class="description last"><p>세가지 문자열 중 하나</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>todoList</code></td>
+                <td class="name"><code>doing</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#TodoListType">TodoListType</a></span>
+<span class="param-type">Array.&lt;TodoItemType></span>
 
 
             
@@ -389,9 +439,28 @@
             
 
             
-                <td class="default">
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>done</code></td>
+            
+
+            <td class="type">
+            
                 
-                </td>
+<span class="param-type">Array.&lt;TodoItemType></span>
+
+
+            
+            </td>
+
+            
+
             
 
             <td class="description last"></td>
@@ -433,7 +502,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="type.js.html">type.js</a>, <a href="type.js.html#line32">line 32</a>
+        <a href="type.js.html">type.js</a>, <a href="type.js.html#line19">line 19</a>
     </li></ul></dd>
     
 
@@ -741,7 +810,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="type.js.html">type.js</a>, <a href="type.js.html#line38">line 38</a>
+        <a href="type.js.html">type.js</a>, <a href="type.js.html#line26">line 26</a>
     </li></ul></dd>
     
 
@@ -815,79 +884,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="type.js.html">type.js</a>, <a href="type.js.html#line28">line 28</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-            
-                
-<h4 class="name" id="TodoListType">TodoListType</h4>
-
-
-
-
-<div class="description">
-    <p>숫자 key와 TodoItem 을 value로 가지는 Map 클래스</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Map.&lt;string, <a href="TodoItemType.html">TodoItemType</a>></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="type.js.html">type.js</a>, <a href="type.js.html#line24">line 24</a>
+        <a href="type.js.html">type.js</a>, <a href="type.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -917,13 +914,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Kanban.html">Kanban</a></li><li><a href="TodoItem.html">TodoItem</a></li><li><a href="TodoItemType.html">TodoItemType</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Kanban.html">Kanban</a></li><li><a href="TodoItem.html">TodoItem</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Mar 31 2022 00:17:28 GMT+0900 (대한민국 표준시)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Apr 03 2022 23:32:04 GMT+0900 (대한민국 표준시)
 </footer>
 
 <script> prettyPrint(); </script>

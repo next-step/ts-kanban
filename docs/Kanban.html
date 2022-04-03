@@ -89,7 +89,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line12">line 12</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -139,7 +139,7 @@
 
         
             
-<h4 class="name" id="kanbanItems"><span class="type-signature"></span>kanbanItems<span class="type-signature"> :Array.&lt;<a href="global.html#KanbanItemType">KanbanItemType</a>></span></h4>
+<h4 class="name" id="kanbanItems"><span class="type-signature"></span>kanbanItems<span class="type-signature"> :<a href="global.html#KanbanItemType">KanbanItemType</a></span></h4>
 
 
 
@@ -150,7 +150,7 @@
     <ul>
         <li>
             
-<span class="param-type">Array.&lt;<a href="global.html#KanbanItemType">KanbanItemType</a>></span>
+<span class="param-type"><a href="global.html#KanbanItemType">KanbanItemType</a></span>
 
 
         </li>
@@ -189,7 +189,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line14">line 14</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -277,7 +277,7 @@
 
             
 
-            <td class="description last"><p>content 는 필수. 나머지는 옵션널, 기본값을 세팅</p></td>
+            <td class="description last"><p>아이디, content 필수. 나머지는 옵션널, 기본값을 세팅</p></td>
         </tr>
 
     
@@ -318,7 +318,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line38">line 38</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line40">line 40</a>
     </li></ul></dd>
     
 
@@ -379,7 +379,7 @@
     
 
     
-    <h4 class="name" id="deleteTag"><span class="type-signature"></span>deleteTag<span class="signature">(id, tagName)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="deleteTag"><span class="type-signature"></span>deleteTag<span class="signature">(prevCategory, id, tagName)</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -419,6 +419,29 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prevCategory</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#TodoCategory">TodoCategory</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>카테고리 &quot;todo&quot; | &quot;doing&quot; | &quot;done&quot;</p></td>
+        </tr>
+
     
 
         <tr>
@@ -503,7 +526,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line89">line 89</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line127">line 127</a>
     </li></ul></dd>
     
 
@@ -557,7 +580,7 @@
     
 
     
-    <h4 class="name" id="deleteTodo"><span class="type-signature"></span>deleteTodo<span class="signature">(id)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="deleteTodo"><span class="type-signature"></span>deleteTodo<span class="signature">(prevCategory, id)</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -597,6 +620,29 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prevCategory</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#TodoCategory">TodoCategory</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>카테고리 &quot;todo&quot; | &quot;doing&quot; | &quot;done&quot;</p></td>
+        </tr>
+
     
 
         <tr>
@@ -658,7 +704,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line98">line 98</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line145">line 145</a>
     </li></ul></dd>
     
 
@@ -809,7 +855,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line28">line 28</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -863,7 +909,7 @@
     
 
     
-    <h4 class="name" id="readTodo"><span class="type-signature"></span>readTodo<span class="signature">(id)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="readTodo"><span class="type-signature"></span>readTodo<span class="signature">(category, id)</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -903,6 +949,29 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>category</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#TodoCategory">TodoCategory</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>카테고리 &quot;todo&quot; | &quot;doing&quot; | &quot;done&quot;</p></td>
+        </tr>
+
     
 
         <tr>
@@ -964,7 +1033,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line47">line 47</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -1026,7 +1095,7 @@
 
 
 <div class="description">
-    <p>유니크한 id 값 문자열을 리턴</p>
+    <p>전체 todo 또는 각 카테고리 전체 todo 읽기</p>
 </div>
 
 
@@ -1131,7 +1200,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line59">line 59</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line66">line 66</a>
     </li></ul></dd>
     
 
@@ -1194,7 +1263,144 @@
     
 
     
-    <h4 class="name" id="updateCategory"><span class="type-signature"></span>updateCategory<span class="signature">(id, newState)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="setState"><span class="type-signature"></span>setState<span class="signature">(newState)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>업데이트</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>newState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#KanbanItemType">KanbanItemType</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>카테고리 &quot;todo&quot; | &quot;doing&quot; | &quot;done&quot;</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateCategory"><span class="type-signature"></span>updateCategory<span class="signature">(prevCategory, id, nextCategory)</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -1238,6 +1444,29 @@
 
         <tr>
             
+                <td class="name"><code>prevCategory</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#TodoCategory">TodoCategory</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>&quot;todo&quot; | &quot;doing&quot; | &quot;done&quot;</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>id</code></td>
             
 
@@ -1261,7 +1490,7 @@
 
         <tr>
             
-                <td class="name"><code>newState</code></td>
+                <td class="name"><code>nextCategory</code></td>
             
 
             <td class="type">
@@ -1318,7 +1547,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line79">line 79</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line107">line 107</a>
     </li></ul></dd>
     
 
@@ -1372,7 +1601,7 @@
     
 
     
-    <h4 class="name" id="updateTodo"><span class="type-signature"></span>updateTodo<span class="signature">(id, newState)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="updateTodo"><span class="type-signature"></span>updateTodo<span class="signature">(category, id, updatedTodo)</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -1416,6 +1645,29 @@
 
         <tr>
             
+                <td class="name"><code>category</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#TodoCategory">TodoCategory</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>카테고리 &quot;todo&quot; | &quot;doing&quot; | &quot;done&quot;</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>id</code></td>
             
 
@@ -1439,7 +1691,7 @@
 
         <tr>
             
-                <td class="name"><code>newState</code></td>
+                <td class="name"><code>updatedTodo</code></td>
             
 
             <td class="type">
@@ -1496,7 +1748,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line69">line 69</a>
+        <a href="Kanban.js.html">Kanban.js</a>, <a href="Kanban.js.html#line86">line 86</a>
     </li></ul></dd>
     
 
@@ -1560,13 +1812,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Kanban.html">Kanban</a></li><li><a href="TodoItem.html">TodoItem</a></li><li><a href="TodoItemType.html">TodoItemType</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Kanban.html">Kanban</a></li><li><a href="TodoItem.html">TodoItem</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Mar 31 2022 00:17:28 GMT+0900 (대한민국 표준시)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Apr 03 2022 23:32:04 GMT+0900 (대한민국 표준시)
 </footer>
 
 <script> prettyPrint(); </script>
