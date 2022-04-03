@@ -1,0 +1,23 @@
+{
+  "name": "ts-kanban",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiaz0128/ts-kanban.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiaz0128/ts-kanban/issues"
+  },
+  "homepage": "https://github.com/tiaz0128/ts-kanban#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.10"
+  }
+}
