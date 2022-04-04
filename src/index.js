@@ -23,9 +23,15 @@ const readTodoDetail = (todoId) => {
 // 할 일 수정
 const updateTodo = (todoId, content, finished, selectedCategory) => {
     const todoItem = todoList.filter((todo) => todo.todoId === todoId);
-    todoItem[0].content = content;
-    todoItem[0].finished = finished;
-    todoItem[0].category = selectedCategory;
+    if (content) {
+        todoItem[0].content = content;
+    }
+    if (finished) {
+        todoItem[0].finished = finished;
+    }
+    if (selectedCategory) {
+        todoItem[0].category = selectedCategory;
+    }
     readTodoList();
 };
 // 특정 할 일의 특정 태그 수정
@@ -60,12 +66,31 @@ const deleteTodoTagAll = (todoId) => {
     readTodoList();
 };
 // 칸반 추가
-const createKanban = (kanban) => { };
+const createKanban = (kanban) => {
+    kanbanList.push(kanban);
+    kanbanId++;
+    readKanban();
+};
 // 칸반 가져오기
-const readKanban = () => { };
+const readKanban = () => {
+    console.table(kanbanList);
+};
 // 칸반 제목 수정
-const updateKanbanTitle = (kanbanId, title) => { };
+const updateKanbanTitle = (kanbanId, title) => {
+    const kanbanItem = kanbanList.filter((kanban) => kanban.kanbanId === kanbanId);
+    kanbanItem[0].title = title;
+    readKanban();
+};
 // 칸반 할 일 이동
-const updateKanbanTodo = (kanbanId, targetKanbanId, todoId) => { };
+const updateKanbanTodo = (kanbanId, targetKanbanId, todoId) => {
+    const kanbanItem = kanbanList.filter((kanban) => kanban.kanbanId === kanbanId);
+    const targetKanbanItem = kanbanList.filter((kanban) => kanban.kanbanId === targetKanbanId);
+    kanbanItem[0].todoList.splice(kanbanItem[0].todoList.findIndex((todo) => todo.todoId === todoId), 1);
+    targetKanbanItem[0].todoList.push(todoList.filter((todo) => todo.todoId === todoId)[0]);
+    readKanban();
+};
 // 칸반 제거
-const deleteKanban = (kanbanId) => { };
+const deleteKanban = (kanbanId) => {
+    kanbanList.splice(kanbanList.findIndex((kanban) => kanban.kanbanId === kanbanId), 1);
+    readKanban();
+};

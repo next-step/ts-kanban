@@ -53,9 +53,15 @@ const updateTodo = (
   const todoItem: TodoItem[] = todoList.filter(
     (todo: TodoItem) => todo.todoId === todoId
   );
-  todoItem[0].content = content;
-  todoItem[0].finished = finished;
-  todoItem[0].category = selectedCategory;
+  if (content) {
+    todoItem[0].content = content;
+  }
+  if (finished) {
+    todoItem[0].finished = finished;
+  }
+  if (selectedCategory) {
+    todoItem[0].category = selectedCategory;
+  }
   readTodoList();
 };
 
@@ -113,20 +119,56 @@ const deleteTodoTagAll = (todoId: number): void => {
 };
 
 // 칸반 추가
-const createKanban = (kanban: Kanban): void => {};
+const createKanban = (kanban: Kanban): void => {
+  kanbanList.push(kanban);
+  kanbanId++;
+  readKanban();
+};
 
 // 칸반 가져오기
-const readKanban = (): void => {};
+const readKanban = (): void => {
+  console.table(kanbanList);
+};
 
 // 칸반 제목 수정
-const updateKanbanTitle = (kanbanId: number, title: string): void => {};
+const updateKanbanTitle = (kanbanId: number, title: string): void => {
+  const kanbanItem: Kanban[] = kanbanList.filter(
+    (kanban: Kanban) => kanban.kanbanId === kanbanId
+  );
+
+  kanbanItem[0].title = title;
+  readKanban();
+};
 
 // 칸반 할 일 이동
 const updateKanbanTodo = (
   kanbanId: number,
   targetKanbanId: number,
   todoId: number
-): void => {};
+): void => {
+  const kanbanItem: Kanban[] = kanbanList.filter(
+    (kanban: Kanban) => kanban.kanbanId === kanbanId
+  );
+  const targetKanbanItem: Kanban[] = kanbanList.filter(
+    (kanban: Kanban) => kanban.kanbanId === targetKanbanId
+  );
+  kanbanItem[0].todoList.splice(
+    kanbanItem[0].todoList.findIndex(
+      (todo: TodoItem) => todo.todoId === todoId
+    ),
+    1
+  );
+  targetKanbanItem[0].todoList.push(
+    todoList.filter((todo: TodoItem) => todo.todoId === todoId)[0]
+  );
+  readKanban();
+};
 
 // 칸반 제거
-const deleteKanban = (kanbanId: number): void => {};
+const deleteKanban = (kanbanId: number): void => {
+  kanbanList.splice(
+    kanbanList.findIndex((kanban: Kanban) => kanban.kanbanId === kanbanId),
+    1
+  );
+  readKanban();
+};
