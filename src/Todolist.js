@@ -1,6 +1,6 @@
 /**
- * @description Todolist는 Todoitem를 가지는 객체
- * @type {Todoitem[]}
+ * @description Kanban(todolist)는 Todoitem를 가지는 객체
+ * @type {{id: !string, title: !string, Todoitems: Todoitem[]}}
  */
 const Todolist = {};
 
@@ -32,10 +32,11 @@ const createItem = (id, content, completed, category, tags) => {
     tags: tags?.length ? tags : undefined,
   };
 
-  Todolist.push(newItem);
+  Todolist.push(newItem); // 특정 id의 Todolist에 추가하도록 변경해야함
   return newItem;
 };
 
+// readList와 중복됨
 /**
  * @function readItems
  * @description 모든 할 일을 조회할 수 있다.
@@ -125,6 +126,7 @@ const deleteItem = (id) => {
 /**
  * @function deleteItems
  * @description 모든 할 일을 제거할 수 있다.
+ * 모든 할 일이 제거되더라도 기존 칸반이 제거되지는 않는다.
  * @returns {boolean}
  */
 const deleteItems = () => {
