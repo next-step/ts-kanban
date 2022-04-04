@@ -3,7 +3,7 @@
  * 0번째 원소로 ArchiveList를 가진다.
  * @type {Todolist[]}
  */
-const Board = [];
+const board = [];
 
 /**
  * @function createList
@@ -15,7 +15,11 @@ const Board = [];
  * @param {Todoitem[]} list - required, 초기에 빈 배열을 가진다. createItem으로 추가됨
  * @returns {{Todolist}} 생성된 Todolist를 반환
  */
-const createList = (id, title) => {};
+const createList = (id, title) => {
+  const newList = { id: id, title: title, list: [] };
+  board.push(newList);
+  return newList;
+};
 
 /**
  * @function readBoard
@@ -23,7 +27,9 @@ const createList = (id, title) => {};
  * 칸반보드에 부착된 모든 Todolist를 조회한다.
  * @returns {Kanban}
  */
-const readBoard = () => {};
+const readBoard = () => {
+  return Object.values(board);
+};
 
 /**
  * @function readList
@@ -32,7 +38,10 @@ const readBoard = () => {};
  * @param {!number} id
  * @returns {Todolist}
  */
-const readList = (id) => {};
+const readList = (id) => {
+  return Object.values(board[id]);
+};
+
 /**
  * @function updateList
  * @description Todolist의 제목을 수정할 수 있다.
@@ -42,7 +51,9 @@ const readList = (id) => {};
  * @param {!string} title
  * @returns {boolean}
  */
-const updateList = (id, title) => {};
+const updateList = (id, title) => {
+  board[id].title = title;
+};
 
 /**
  * @function moveList
@@ -50,7 +61,10 @@ const updateList = (id, title) => {};
  * @param {!number} id - 이동하려는 Todolist의 id
  * @param {!number} to - 목적지 index(몇번째로 옮길지)
  */
-const moveList = (id, to) => {};
+const moveList = (id, to) => {
+  createList(to, board[id].title);
+  board.splice(id, 1);
+};
 
 /**
  * @function moveItem
@@ -60,7 +74,10 @@ const moveList = (id, to) => {};
  * @param {!number} to  - 이후 Todolist의 ID
  * @returns {boolean}
  */
-const moveItem = (id, from, to) => {};
+const moveItem = (id, from, to) => {
+  board[to].list.push(board[from].list[id]);
+  board[from].list.splice(id, 1);
+};
 
 /**
  * @function deleteList
@@ -69,9 +86,12 @@ const moveItem = (id, from, to) => {};
  * @param {!number} id
  * @returns {boolean}
  */
-const deleteList = (id) => {};
+const deleteList = (id) => {
+  board.splice(id, 1); //id를 찾아서 제거해야함
+};
 
 export {
+  board,
   createList,
   readBoard,
   readList,
