@@ -9,7 +9,10 @@
  * @constructor
  * @public
  */
- class TodoItem {
+ export default class TodoItem {
+  /** @member {string} */
+  id
+
   /** @member {string} */
   content
   
@@ -32,8 +35,14 @@
    * 
    * @see {@link InitTodoItemType} 참고
    */
-  constructor(initState){
+  constructor({id, category, content, complete, tags}){
+    if(!id) throw new Error('Error : empty id')
+    if(!content) throw new Error('Error : empty content')
 
+    this.id = id;
+    this.content = content;
+    this.complete = complete || false;
+    this.tags = tags || [];
   }
 
   /** 
@@ -43,6 +52,6 @@
    * @todo  콘솔에 TodoItem 의 정보를 출력한다.
    */
   printTodo() {
-    
+    console.log(`${this.complete ? '✅' : '⬛'} ${this.id} : ${this.content} / ${this.tags.join(', ')}`)
   }
 }

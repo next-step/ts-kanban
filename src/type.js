@@ -5,25 +5,12 @@
 
 /** 
  * @typedef {object} InitTodoItemType TodoItem
+  * @property {string} id 아이디값
+  * @property {string} category 카테고리
   * @property {string} content 내용
   * @property {boolean} [complete] 완료여부
   * @property {string[]} [tags] 태그들
 */
-
-/**
- * @typedef {class} TodoItemType TodoItem 클래스
-  * @property {string} content 내용
-  * @property {boolean} complete 완료여부
-  * @property {string[]} tags 태그들
-  * 
-  * @constructs InitTodoItemType 초기화값
-  * 
-  * @property {function} printTodo 콘솔에 TodoItem 의 정보를 출력한다.
- */
-
-/**
- * @typedef {Map<string, TodoItemType>} TodoListType 숫자 key와 TodoItem 을 value로 가지는 Map 클래스
- */
 
 /**
  * @typedef  {"todo" | "doing" | "done"} TodoCategory 
@@ -31,8 +18,9 @@
 
 /**
  * @typedef {object} KanbanItemType
- *  @property {TodoCategory} category="todo" 세가지 문자열 중 하나
- *  @property {TodoListType} todoList
+ *  @property {TodoItemType[]} todo
+ *  @property {TodoItemType[]} doing
+ *  @property {TodoItemType[]} done
  */
 
 /**
