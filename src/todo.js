@@ -15,14 +15,16 @@ const Todolist = [];
  * @param tags {?string[]} - optional
  */
 const createItem = (id, content, completed, category, tags) => {
-    const newItem = {
-        id,
-        content,
-        completed,
-        category,
-        tags: (tags === null || tags === void 0 ? void 0 : tags.length) ? tags : null,
-    };
-    Todolist.push(newItem);
+  const newItem = {
+    id,
+    content,
+    completed,
+    category,
+    tags: (tags === null || tags === void 0 ? void 0 : tags.length)
+      ? tags
+      : null,
+  };
+  Todolist.push(newItem);
 };
 /**
  * @function readItems
@@ -30,7 +32,7 @@ const createItem = (id, content, completed, category, tags) => {
  * @returns Todolist
  */
 const readItems = () => {
-    return Todolist;
+  return Todolist;
 };
 /**
  * @function readItem
@@ -39,8 +41,8 @@ const readItems = () => {
  * @returns {{}}
  */
 const readItem = (id) => {
-    const targetItem = Todolist.find((item) => item.id === id);
-    return targetItem ? targetItem : {};
+  const targetItem = Todolist.find((item) => item.id === id);
+  return targetItem ? targetItem : {};
 };
 /**
  * @function updateItem
@@ -53,13 +55,13 @@ const readItem = (id) => {
  * @returns {boolean}
  */
 const updateItem = (id, content, completed, category, tags) => {
-    const targetItemIdx = Todolist.findIndex((item) => item.id === id);
-    if (targetItemIdx === -1)
-        return false;
-    Todolist[targetItemIdx] = Object.assign(Object.assign({}, Todolist[targetItemIdx]), { content,
-        completed,
-        category, tags: tags.length ? tags : undefined });
-    return true;
+  const targetItemIdx = Todolist.findIndex((item) => item.id === id);
+  if (targetItemIdx === -1) return false;
+  Todolist[targetItemIdx] = Object.assign(
+    Object.assign({}, Todolist[targetItemIdx]),
+    { content, completed, category, tags: tags.length ? tags : undefined }
+  );
+  return true;
 };
 /**
  * @function updateTag
@@ -70,14 +72,14 @@ const updateItem = (id, content, completed, category, tags) => {
  * @returns {boolean}
  */
 const updateTag = (id, prev, next) => {
-    const targetItemIdx = Todolist.findIndex((item) => item.id === id);
-    if (targetItemIdx === -1)
-        return false;
-    const targetTagIdx = Todolist[targetItemIdx].tags.findIndex((tag) => tag === prev);
-    if (targetTagIdx === -1)
-        return false;
-    Todolist[targetItemIdx].tags[targetTagIdx] = next;
-    return true;
+  const targetItemIdx = Todolist.findIndex((item) => item.id === id);
+  if (targetItemIdx === -1) return false;
+  const targetTagIdx = Todolist[targetItemIdx].tags.findIndex(
+    (tag) => tag === prev
+  );
+  if (targetTagIdx === -1) return false;
+  Todolist[targetItemIdx].tags[targetTagIdx] = next;
+  return true;
 };
 /**
  * @function deleteItem
@@ -86,18 +88,17 @@ const updateTag = (id, prev, next) => {
  * @returns {boolean}
  */
 const deleteItem = (id) => {
-    const targetItemIdx = Todolist.findIndex((item) => item.id === id);
-    if (targetItemIdx === -1)
-        return false;
-    Todolist.splice(targetItemIdx, 1);
-    return true;
+  const targetItemIdx = Todolist.findIndex((item) => item.id === id);
+  if (targetItemIdx === -1) return false;
+  Todolist.splice(targetItemIdx, 1);
+  return true;
 };
 /**
  * @function deleteItems
  * @description 모든 할 일을 제거할 수 있다.
  */
 const deleteItems = () => {
-    Todolist.splice(0, Todolist.length);
+  Todolist.splice(0, Todolist.length);
 };
 /**
  * 특정 할 일의 특정 태그를 삭제할 수 있다.
@@ -106,14 +107,14 @@ const deleteItems = () => {
  * @returns {boolean}
  */
 const deleteTag = (id, tag) => {
-    const targetItemIdx = Todolist.findIndex((item) => item.id === id);
-    if (targetItemIdx === -1)
-        return false;
-    const targetTagIdx = Todolist[targetItemIdx].tags.findIndex((eachTag) => eachTag === tag);
-    if (targetTagIdx === -1)
-        return false;
-    Todolist[targetItemIdx].tags.splice(targetTagIdx, 1);
-    return true;
+  const targetItemIdx = Todolist.findIndex((item) => item.id === id);
+  if (targetItemIdx === -1) return false;
+  const targetTagIdx = Todolist[targetItemIdx].tags.findIndex(
+    (eachTag) => eachTag === tag
+  );
+  if (targetTagIdx === -1) return false;
+  Todolist[targetItemIdx].tags.splice(targetTagIdx, 1);
+  return true;
 };
 /**
  * @function deleteTags
@@ -121,13 +122,12 @@ const deleteTag = (id, tag) => {
  * @param id
  */
 const deleteTags = (id) => {
-    const targetItemIdx = Todolist.findIndex((item) => item.id === id);
-    if (targetItemIdx === -1)
-        return false;
-    Todolist[targetItemIdx].tags = [];
+  const targetItemIdx = Todolist.findIndex((item) => item.id === id);
+  if (targetItemIdx === -1) return false;
+  Todolist[targetItemIdx].tags = [];
 };
 const template = ({ id, content, completed, category, tags }) => {
-    return `<li data-id=${id}>
+  return `<li data-id=${id}>
 			  <span>${id} | </span>
 			  <span>${content} | </span>
 			  <span>${category} | </span>
@@ -135,21 +135,23 @@ const template = ({ id, content, completed, category, tags }) => {
 			</li>`;
 };
 const App = () => {
-    const $form = document.querySelector("form");
-    const $ul = document.querySelector("ul");
-    const render = () => {
-        $ul.innerHTML = Todolist.map((todo) => template(Object.assign({}, todo))).join("");
-    };
-    $form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const id = e.target["id"].value;
-        const content = e.target["content"].value;
-        const completed = e.target["completed"].value;
-        const category = e.target["category"].value;
-        createItem(id, content, completed, category, []);
-        render();
-    });
+  const $form = document.querySelector("form");
+  const $ul = document.querySelector("ul");
+  const render = () => {
+    $ul.innerHTML = Todolist.map((todo) =>
+      template(Object.assign({}, todo))
+    ).join("");
+  };
+  $form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const id = e.target["id"].value;
+    const content = e.target["content"].value;
+    const completed = e.target["completed"].value;
+    const category = e.target["category"].value;
+    createItem(id, content, completed, category, []);
+    render();
+  });
 };
 window.onload = () => {
-    App();
+  App();
 };
