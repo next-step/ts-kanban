@@ -2,7 +2,7 @@
  * @function createItem
  * @description 할 일을 추가할 수 있다. 내용없이 추가할 수 없다.
  * Todoitem 객체를 생성한다.
- * @param {!number} id 
+ * @param {!number} id
  * @param {!string} content
  * @param {!boolean} completed
  * @param {!string} category
@@ -42,7 +42,7 @@ const readItem = (id) => {
  * 수정 성공시 true 반환
  * null 입력시 해당 속성은 수정하지 않음
  * @param {!number} id
- * @param {!string} content 
+ * @param {!string} content
  * @param {!boolean} completed
  * @param {!string} category
  * @param {?string[]} tags
@@ -66,7 +66,7 @@ const updateItem = (id, content, completed, category, tags) => {
  * @function updateTag
  * @description 특정 할 일의 특정 태그를 수정할 수 있다.
  * 수정 성공시 true 반환
- * @param {!number} id 
+ * @param {!number} id
  * @param {!string} prev  - 수정하려는 태그
  * @param {!string} next  - 수정할 내용
  * @returns {boolean}
@@ -113,7 +113,7 @@ const deleteItems = () => {
 /**
  * @function deleteTag
  * @description 특정 할 일의 특정 태그를 삭제할 수 있다.
- * @param {!number} id 
+ * @param {!number} id
  * @param {!string} tag
  * @returns {boolean}
  */
@@ -144,4 +144,13 @@ const deleteTags = (id) => {
   return true;
 };
 
-export { createItem, readItem, updateItem, updateTag, deleteItem, deleteItems, deleteTag, deleteTags}
+export {
+  createItem,
+  readItem,
+  updateItem,
+  updateTag,
+  deleteItem,
+  deleteItems,
+  deleteTag,
+  deleteTags,
+};

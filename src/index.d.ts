@@ -19,7 +19,13 @@ declare const Todoitem: {};
  * @param tags {?string[]} - optional
  * @returns {{}}
  */
-declare const createItem: (id: string, content: string, completed: boolean, category: string, tags: string[]) => {};
+declare const createItem: (
+  id: string,
+  content: string,
+  completed: boolean,
+  category: string,
+  tags: string[]
+) => {};
 /**
  * 모든 할 일을 조회할 수 있다.
  * Todolist를 반환한다.
@@ -44,7 +50,13 @@ declare const readItem: (id: string) => boolean;
  * @param tags {string[]} - optional
  * @returns {boolean}
  */
-declare const updateItem: (id: string, content: string, completed: boolean, category: string, tags: string[]) => boolean;
+declare const updateItem: (
+  id: string,
+  content: string,
+  completed: boolean,
+  category: string,
+  tags: string[]
+) => boolean;
 /**
  * 특정 할 일의 특정 태그를 수정할 수 있다.
  * 수정 성공시 true 반환
