@@ -1,1 +1,0 @@
-type GetUid = () => string;
