@@ -1,4 +1,4 @@
-.board--contianer {
+.board-cotainer {
   display: flex;
   justify-content: space-evenly;
   gap: 2em;
@@ -24,4 +24,17 @@
   border-radius: 4px;
 
   border: 2px solid bisque;
+}
+
+.tag--container {
+  display: flex;
+  justify-content: end;
+}
+
+.tag {
+  font-size: 0.75em;
+  border-radius: 4px;
+  border: 1px solid darkcyan;
+  margin: 0 3px;
+  padding: 2px;
 }
