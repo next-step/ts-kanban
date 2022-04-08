@@ -12,8 +12,8 @@ export default class App extends BaseComponent {
             <section class="kanban-board"></section>
           </main>`);
         this.kanban = new Kanban();
-        this.handleAdd = () => {
-            this.kanban.createTodo({ content: "test", tags: ["abc", "123"] });
+        this.handleAdd = (initTodoItem) => {
+            this.kanban.createTodo(initTodoItem);
             this.setState();
         };
         this.attachTo(appRoot, "beforeend");

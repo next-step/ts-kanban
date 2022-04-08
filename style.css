@@ -1,4 +1,4 @@
-.board-cotainer {
+.board-container {
   display: flex;
   justify-content: space-evenly;
   gap: 2em;
@@ -13,7 +13,7 @@
   border: 1px solid palegoldenrod;
 }
 
-.todo--contianer {
+.todo--container {
   width: 100%;
 }
 

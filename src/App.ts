@@ -31,8 +31,8 @@ export default class App extends BaseComponent {
     this.board = new Board(boardContainer, this.kanban);
   }
 
-  handleAdd = () => {
-    this.kanban.createTodo({ content: "test", tags: ["abc", "123"] });
+  handleAdd = (initTodoItem: { content: string; tags: string[] }) => {
+    this.kanban.createTodo(initTodoItem);
     this.setState();
   };
 

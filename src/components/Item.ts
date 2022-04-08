@@ -1,4 +1,5 @@
 import BaseComponent from "../common/BaseComponent.js";
+import { getChildElement } from "../utils/dom.js";
 
 export default class Item extends BaseComponent {
   constructor(parent: HTMLElement, todo: any) {
@@ -9,14 +10,10 @@ export default class Item extends BaseComponent {
 
     this.element.setAttribute("data-todo-id", todo.id);
 
-    const title = this.element.querySelector(".todo--title")! as HTMLDivElement;
+    const title = getChildElement(this.element, ".todo--title");
     title.textContent = todo.content;
 
-    const tags = this.element.querySelector(
-      ".tag--container"
-    )! as HTMLDivElement;
-
-    //["TEST", "ABC"]
+    const tags = getChildElement(this.element, ".tag--container");
     todo.tags.forEach((tag: string) => {
       const tagElement = document.createElement("span");
       tagElement.classList.add("tag");
