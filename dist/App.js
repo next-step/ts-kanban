@@ -1,7 +1,8 @@
 import BaseComponent from "./common/BaseComponent.js";
-import Board from "./components/Borad.js";
+import Board from "./components/Board.js";
 import Inputs from "./components/Inputs.js";
 import Kanban from "./model/Kanban.js";
+import { getChildElement } from "./utils/dom.js";
 export default class App extends BaseComponent {
     constructor(appRoot) {
         super(`<main>
@@ -16,11 +17,15 @@ export default class App extends BaseComponent {
             this.kanban.createTodo(initTodoItem);
             this.setState();
         };
+        this.handleDrag = (prevCategory, id, nextCategory) => {
+            this.kanban.updateCategory(prevCategory, id, nextCategory);
+            this.setState();
+        };
         this.attachTo(appRoot, "beforeend");
-        const inputsContainer = this.element.querySelector(".todo-inputs");
+        const inputsContainer = getChildElement(this.element, ".todo-inputs");
         this.inputs = new Inputs(inputsContainer, this.handleAdd);
-        const boardContainer = this.element.querySelector(".kanban-board");
-        this.board = new Board(boardContainer, this.kanban);
+        const boardContainer = getChildElement(this.element, ".kanban-board");
+        this.board = new Board(boardContainer, this.kanban, this.handleDrag);
     }
     render() {
         this.board.render();
