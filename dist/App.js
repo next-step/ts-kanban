@@ -21,11 +21,19 @@ export default class App extends BaseComponent {
             this.kanban.updateCategory(prevCategory, id, nextCategory);
             this.setState();
         };
+        this.handleDeleteTodo = (category, id) => {
+            this.kanban.deleteTodo(category, id);
+            this.setState();
+        };
+        this.handleDeleteTag = (category, id, tagName) => {
+            this.kanban.deleteTag(category, id, tagName);
+            this.setState();
+        };
         this.attachTo(appRoot, "beforeend");
         const inputsContainer = getChildElement(this.element, ".todo-inputs");
         this.inputs = new Inputs(inputsContainer, this.handleAdd);
         const boardContainer = getChildElement(this.element, ".kanban-board");
-        this.board = new Board(boardContainer, this.kanban, this.handleDrag);
+        this.board = new Board(boardContainer, this.kanban, this.handleDrag, this.handleDeleteTodo, this.handleDeleteTag);
     }
     render() {
         this.board.render();

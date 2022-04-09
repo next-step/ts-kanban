@@ -2,7 +2,7 @@ import BaseComponent from "../common/BaseComponent.js";
 import { getChildElement } from "../utils/dom.js";
 import Item from "./Item.js";
 export default class Board extends BaseComponent {
-    constructor(parent, kanban, handleDrag) {
+    constructor(parent, kanban, handleDrag, handleDeleteTodo, handleDeleteTag) {
         super(`<div class="board-container">
             <div class="board todo" data-category="todo">
               <h2>todo</h2>
@@ -20,6 +20,8 @@ export default class Board extends BaseComponent {
         this.kanban = kanban;
         this.attachTo(parent, "beforeend");
         this.bindEvent(handleDrag);
+        this.handleDeleteTodo = handleDeleteTodo;
+        this.handleDeleteTag = handleDeleteTag;
     }
     bindEvent(handleDrag) {
         const boards = document.querySelectorAll(".board");
@@ -47,21 +49,14 @@ export default class Board extends BaseComponent {
         this.kanban = newState;
     }
     render() {
-        const todoContainer = getChildElement(this.element, ".todo--container");
-        todoContainer.innerHTML = "";
         console.log(this.kanban);
-        this.kanban.kanbanItems.todo.forEach((item) => {
-            new Item(todoContainer, item, "todo");
-        });
-        const doingContainer = getChildElement(this.element, ".doing--container");
-        doingContainer.innerHTML = "";
-        this.kanban.kanbanItems.doing.forEach((item) => {
-            new Item(doingContainer, item, "doing");
-        });
-        const doneContainer = getChildElement(this.element, ".done--container");
-        doneContainer.innerHTML = "";
-        this.kanban.kanbanItems.done.forEach((item) => {
-            new Item(doneContainer, item, "done");
+        const itemCategoryKeys = Object.keys(this.kanban.kanbanItems);
+        itemCategoryKeys.forEach((categoryKey) => {
+            const CategoryContainer = getChildElement(this.element, `.${categoryKey}--container`);
+            CategoryContainer.innerHTML = "";
+            this.kanban.kanbanItems[categoryKey].forEach((item) => {
+                new Item(CategoryContainer, item, categoryKey, this.handleDeleteTodo, this.handleDeleteTag);
+            });
         });
     }
 }

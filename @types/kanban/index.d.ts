@@ -51,3 +51,25 @@ declare interface KanbanType {
     tagName: TodoType["tag"]
   ) => void;
 }
+
+declare type AddHandler = (initTodoItem: {
+  content: string;
+  tags: string[];
+}) => void;
+
+declare type DragHandler = (
+  prevCategory: TodoCategory,
+  id: TodoType["id"],
+  nextCategory: TodoCategory
+) => void;
+
+declare type DeleteTagHandler = (
+  category: TodoCategory,
+  id: TodoType["id"],
+  tagName: TodoType["tag"]
+) => void;
+
+declare type DeleteTodoHandler = (
+  category: TodoCategory,
+  id: TodoType["id"]
+) => void;

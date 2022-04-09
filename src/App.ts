@@ -24,20 +24,34 @@ export default class App extends BaseComponent {
     this.inputs = new Inputs(inputsContainer, this.handleAdd);
 
     const boardContainer = getChildElement(this.element, ".kanban-board");
-    this.board = new Board(boardContainer, this.kanban, this.handleDrag);
+    this.board = new Board(
+      boardContainer,
+      this.kanban,
+      this.handleDrag,
+      this.handleDeleteTodo,
+      this.handleDeleteTag
+    );
   }
 
-  handleAdd = (initTodoItem: { content: string; tags: string[] }) => {
+  handleAdd: AddHandler = (initTodoItem) => {
     this.kanban.createTodo(initTodoItem);
     this.setState();
   };
 
-  handleDrag = (
-    prevCategory: TodoCategory,
-    id: string,
-    nextCategory: TodoCategory
-  ) => {
+  handleDrag: DragHandler = (prevCategory, id, nextCategory) => {
     this.kanban.updateCategory(prevCategory, id, nextCategory);
+
+    this.setState();
+  };
+
+  handleDeleteTodo: DeleteTodoHandler = (category, id) => {
+    this.kanban.deleteTodo(category, id);
+
+    this.setState();
+  };
+
+  handleDeleteTag: DeleteTagHandler = (category, id, tagName) => {
+    this.kanban.deleteTag(category, id, tagName);
 
     this.setState();
   };

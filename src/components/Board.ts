@@ -5,15 +5,15 @@ import Item from "./Item.js";
 
 export default class Board extends BaseComponent {
   private kanban: Kanban;
+  handleDeleteTodo: DeleteTodoHandler;
+  handleDeleteTag: DeleteTagHandler;
 
   constructor(
     parent: HTMLElement,
     kanban: Kanban,
-    handleDrag: (
-      prevCategory: TodoCategory,
-      id: string,
-      nextCategory: TodoCategory
-    ) => void
+    handleDrag: DragHandler,
+    handleDeleteTodo: DeleteTodoHandler,
+    handleDeleteTag: DeleteTagHandler
   ) {
     super(`<div class="board-container">
             <div class="board todo" data-category="todo">
@@ -34,15 +34,11 @@ export default class Board extends BaseComponent {
     this.attachTo(parent, "beforeend");
 
     this.bindEvent(handleDrag);
+    this.handleDeleteTodo = handleDeleteTodo;
+    this.handleDeleteTag = handleDeleteTag;
   }
 
-  bindEvent(
-    handleDrag: (
-      prevCategory: TodoCategory,
-      id: string,
-      nextCategory: TodoCategory
-    ) => void
-  ) {
+  bindEvent(handleDrag: DragHandler) {
     const boards = document.querySelectorAll<HTMLDivElement>(".board");
     let dragCategory: TodoCategory;
     let dragTodoId: string = "";
@@ -77,27 +73,28 @@ export default class Board extends BaseComponent {
   }
 
   render() {
-    const todoContainer = getChildElement(this.element, ".todo--container");
-    todoContainer.innerHTML = "";
-
     console.log(this.kanban);
 
-    this.kanban.kanbanItems.todo.forEach((item) => {
-      new Item(todoContainer, item, "todo");
-    });
+    const itemCategoryKeys = Object.keys(
+      this.kanban.kanbanItems
+    )! as TodoCategory[];
 
-    const doingContainer = getChildElement(this.element, ".doing--container");
-    doingContainer.innerHTML = "";
+    itemCategoryKeys.forEach((categoryKey: TodoCategory) => {
+      const CategoryContainer = getChildElement(
+        this.element,
+        `.${categoryKey}--container`
+      );
+      CategoryContainer.innerHTML = "";
 
-    this.kanban.kanbanItems.doing.forEach((item) => {
-      new Item(doingContainer, item, "doing");
-    });
-
-    const doneContainer = getChildElement(this.element, ".done--container");
-    doneContainer.innerHTML = "";
-
-    this.kanban.kanbanItems.done.forEach((item) => {
-      new Item(doneContainer, item, "done");
+      this.kanban.kanbanItems[categoryKey].forEach((item) => {
+        new Item(
+          CategoryContainer,
+          item,
+          categoryKey,
+          this.handleDeleteTodo,
+          this.handleDeleteTag
+        );
+      });
     });
   }
 }

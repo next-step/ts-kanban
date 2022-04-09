@@ -5,10 +5,7 @@ export default class Inputs extends BaseComponent {
   content: string;
   tagsRawStr: string;
 
-  constructor(
-    parent: HTMLElement,
-    handleAdd: (initTodoItem: { content: string; tags: string[] }) => void
-  ) {
+  constructor(parent: HTMLElement, handleAdd: AddHandler) {
     super(`<div>
             <label>할 일 : </label>
             <input id="todo-input" />
@@ -24,9 +21,7 @@ export default class Inputs extends BaseComponent {
     this.bindEvent(handleAdd);
   }
 
-  bindEvent(
-    handleAdd: (initTodoItem: { content: string; tags: string[] }) => void
-  ) {
+  bindEvent(handleAdd: AddHandler) {
     const todoContentInput = getChildElement<HTMLInputElement>(
       this.element,
       "#todo-input"
@@ -38,12 +33,12 @@ export default class Inputs extends BaseComponent {
 
     const addBtn = getChildElement<HTMLInputElement>(this.element, "#add-btn");
 
-    todoContentInput.onkeyup = (e: Event) => {
+    todoContentInput.onchange = (e: Event) => {
       const content = (e.target as HTMLInputElement).value;
       this.content = content;
     };
 
-    tagsInput.onkeyup = (e: Event) => {
+    tagsInput.onchange = (e: Event) => {
       const tagsRawStr = (e.target as HTMLInputElement).value;
       this.tagsRawStr = tagsRawStr;
     };

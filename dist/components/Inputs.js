@@ -18,11 +18,11 @@ export default class Inputs extends BaseComponent {
         const todoContentInput = getChildElement(this.element, "#todo-input");
         const tagsInput = getChildElement(this.element, "#tags-input");
         const addBtn = getChildElement(this.element, "#add-btn");
-        todoContentInput.onkeyup = (e) => {
+        todoContentInput.onchange = (e) => {
             const content = e.target.value;
             this.content = content;
         };
-        tagsInput.onkeyup = (e) => {
+        tagsInput.onchange = (e) => {
             const tagsRawStr = e.target.value;
             this.tagsRawStr = tagsRawStr;
         };
